@@ -8,13 +8,12 @@ function ActiveLink({ children, to, ...props }) {
     return (
       <div>
         <Link
-          style={{ textDecoration: match ? "underline" : "none" }}
+          style={{ borderBottom:match?"3px solid #eb5525" :"none"}}
           to={to}
           {...props}
         >
           {children}
         </Link>
-        {match && " (active)"}
       </div>
     );
   }
