@@ -30,7 +30,7 @@ const Header = () => {
                 <ActiveLink to="/myitems">My items</ActiveLink>
                 </>
               }
-              { user?<button onClick={()=> handleSignOut() }>Logout</button>:
+              { user?<button className="btn btn-link text-decoration-none logout-btn" onClick={()=> handleSignOut() }>Logout</button>:
                 <ActiveLink to="/login">Login</ActiveLink>
               }
             </Nav>

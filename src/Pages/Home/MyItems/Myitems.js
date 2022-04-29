@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import axiosPrivate from "../../../api/axiosPrivate";
 import auth from "../../../firebase.init";
 import PageTitle from "../../Shared/PageTItle/PageTitle";
@@ -21,14 +22,17 @@ const Myitems = () => {
     getItem();
   }, [user]);
   const handleDelete = id => {
-    axios.delete(`https://secure-reaches-83838.herokuapp.com/dress/${id}`)
-    .then(response => {
-      console.log(response.data);
-      if(response.data.deletedCount > 0){
-        const remaining = posts.filter(post => post._id !== id)
-        myPosts(remaining)
-      }
-    })
+    const procced = window.confirm("Do you want to delete?")
+    if(procced){
+      axios.delete(`https://secure-reaches-83838.herokuapp.com/dress/${id}`)
+      .then(response => {
+        toast.success("successfully deleted")
+        if(response.data.deletedCount > 0){
+          const remaining = posts.filter(post => post._id !== id)
+          myPosts(remaining)
+        }
+      })
+    }
   }
   return (
     <div>

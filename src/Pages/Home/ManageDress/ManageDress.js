@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PageTitle from "../../Shared/PageTItle/PageTitle";
 
 const ManageDress = () => {
@@ -9,6 +9,7 @@ const ManageDress = () => {
   const [dress, setDress] = useState([]);
   const [reload, setReload] = useState(false);
   const [newQuantity, setQuantity] = useState(dress.quantity);
+  const navigate = useNavigate()
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
@@ -31,7 +32,6 @@ const ManageDress = () => {
       });
   };
 
-  console.log(dress);
   const handleAddItem = async (event) => {
     event.preventDefault();
     const addquantity = event.target.quantity.value;
@@ -42,6 +42,7 @@ const ManageDress = () => {
       })
       .then((response) => {
         setReload(!reload);
+        event.target.reset()
       });
   };
   return (
@@ -78,7 +79,10 @@ const ManageDress = () => {
               </button>
           </div>
         </div>
+       <div className="text-center">
+       <button className="mt-5 btn btn-link fs-5" onClick={()=> navigate("/manageinventory")}>Manage inventory</button>
       </div>
+       </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import UseDresses from "../../../CustomHook/UseDresses";
 import PageTitle from "../../Shared/PageTItle/PageTitle";
 import ManageInventoryData from "../ManageInventoryData/ManageInventoryData";
@@ -11,14 +12,18 @@ const ManageInventories = () => {
   const navigate = useNavigate();
 
   const handleDelete = id => {
-    axios.delete(`https://secure-reaches-83838.herokuapp.com/dress/${id}`)
-    .then(response => {
-      console.log(response.data);
-      if(response.data.deletedCount > 0){
-        const remaining = dresses.filter(dress => dress._id !== id)
-        setDresses(remaining)
-      }
-    })
+    const procced = window.confirm("Do you want to delete?")
+    if(procced){
+      axios.delete(`https://secure-reaches-83838.herokuapp.com/dress/${id}`)
+      .then(response => {
+        toast.success("Successfully deleted")
+        if(response.data.deletedCount > 0){
+          const remaining = dresses.filter(dress => dress._id !== id)
+          setDresses(remaining)
+        }
+      })
+    }
+   
   }
   return (
     <div>
