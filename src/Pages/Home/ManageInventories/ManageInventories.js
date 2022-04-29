@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -5,8 +6,19 @@ import UseDresses from "../../../CustomHook/UseDresses";
 import ManageInventoryData from "../ManageInventoryData/ManageInventoryData";
 
 const ManageInventories = () => {
-  const [dresses] = UseDresses();
+  const [dresses,setDresses] = UseDresses();
   const navigate = useNavigate();
+
+  const handleDelete = id => {
+    axios.delete(`http://localhost:5000/dress/${id}`)
+    .then(response => {
+      console.log(response.data);
+      if(response.data.deletedCount > 0){
+        const remaining = dresses.filter(dress => dress._id !== id)
+        setDresses(remaining)
+      }
+    })
+  }
   return (
     <div>
       <h3 className="text-center mt-4">Manage inventory</h3>
@@ -17,6 +29,7 @@ const ManageInventories = () => {
               <ManageInventoryData
                 key={dress._id}
                 dress={dress}
+                handleDelete={handleDelete}
               ></ManageInventoryData>
             ))}
           </Row>
