@@ -6,12 +6,14 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Blog from './Pages/Blog/Blog';
 import Additem from './Pages/Home/Additem/Additem';
 import HomePage from './Pages/Home/HomePage/HomePage';
 import ManageDress from './Pages/Home/ManageDress/ManageDress';
 import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
 import Myitems from './Pages/Home/MyItems/Myitems';
 import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
+import NotFound from './Pages/NotFound/NotFound';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
 
@@ -45,6 +47,8 @@ function App() {
           <Myitems></Myitems>
         </PrivateRoute>}></Route>
         <Route path='/login'element={<Login></Login>}></Route>
+        <Route path='/blogs'element={<Blog></Blog>}></Route>
+        <Route path='*'element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );
