@@ -14,6 +14,7 @@ import ManageInventories from './Pages/Home/ManageInventories/ManageInventories'
 import Myitems from './Pages/Home/MyItems/Myitems';
 import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
 import NotFound from './Pages/NotFound/NotFound';
+import Fotter from './Pages/Shared/Fotter/Fotter';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
 
@@ -50,6 +51,7 @@ function App() {
         <Route path='/blogs'element={<Blog></Blog>}></Route>
         <Route path='*'element={<NotFound></NotFound>}></Route>
       </Routes>
+       <Fotter></Fotter>
     </div>
   );
 }

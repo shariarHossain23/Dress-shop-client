@@ -50,6 +50,7 @@ const Myitems = () => {
         <PageTitle title='mypost'></PageTitle>
       <div>
           <Container>
+            <h1 className="text-center mt-5">My Post</h1>
           <Row>
           {
               posts.map(post => <Mypost key={post._id} post={post}

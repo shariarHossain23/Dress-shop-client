@@ -9,7 +9,7 @@ const Dress = ({ dress }) => {
   return (
     <Col md={4} className="  gx-5 mx-auto" data-aos="fade-right"  data-aos-offset="300"   data-aos-easing="ease-in-sine">
       <Card className="dress-card" >
-        <Card.Img className="dress-img" variant="top" src={img} />
+        <Card.Img className="dress-img img-fluid" variant="top" src={img} />
         <Card.Body>
           <Card.Title>Name:{dressName}</Card.Title>
           <Card.Text>
