@@ -1,4 +1,7 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +16,9 @@ import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
 
 function App() {
+  useEffect(()=>{
+    AOS.init();
+  },[])
   return (
     <div>
       <ToastContainer></ToastContainer>

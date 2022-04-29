@@ -5,7 +5,8 @@ const ManageInventoryData = ({ dress,handleDelete }) => {
     const {dressName, price, img,supplierName, quantity,_id} = dress;
   return (
   
-    <Col md={4} className="  gx-5 mx-auto">
+    <Col md={4} className="  gx-5 mx-auto"
+    data-aos="fade-up-right">
     <Card className="manage-card">
       <Card.Img className="dress-img" variant="top" src={img} />
       <Card.Body>

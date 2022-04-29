@@ -14,7 +14,7 @@ const Dresses = () => {
       <h1 className="text-center mt-5">Dress Collection</h1>
       <div>
         <Container>
-          <Row className="gx-5">
+          <Row  className="gx-5">
               {dresses.slice(0, 6).map((dress) => (
                 <Dress key={dress._id} dress={dress}></Dress>
               ))}

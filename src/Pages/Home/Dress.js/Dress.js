@@ -7,7 +7,7 @@ const Dress = ({ dress }) => {
   const { dressName, price, img, desc, supplierName, quantity,_id} = dress;
   const navigate = useNavigate()
   return (
-    <Col md={4} className="  gx-5 mx-auto">
+    <Col md={4} className="  gx-5 mx-auto" data-aos="fade-right"  data-aos-offset="300"   data-aos-easing="ease-in-sine">
       <Card className="dress-card" >
         <Card.Img className="dress-img" variant="top" src={img} />
         <Card.Body>
