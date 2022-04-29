@@ -25,6 +25,7 @@ const Additem = () => {
   };
   return (
     <div>
+      <PageTitle title="additem"></PageTitle>
       <div className="container-fluid ">
         <div className="row">
           <div className="col-md-6 mx-auto form-group">

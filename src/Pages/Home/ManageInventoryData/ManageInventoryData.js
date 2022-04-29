@@ -1,10 +1,8 @@
 import { Card, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import './manageinventory.css';
 
 const ManageInventoryData = ({ dress,handleDelete }) => {
     const {dressName, price, img,supplierName, quantity,_id} = dress;
-    const navigate = useNavigate()
   return (
   
     <Col md={4} className="  gx-5 mx-auto">

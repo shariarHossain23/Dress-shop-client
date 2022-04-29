@@ -3,6 +3,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import UseDresses from "../../../CustomHook/UseDresses";
+import PageTitle from "../../Shared/PageTItle/PageTitle";
 import ManageInventoryData from "../ManageInventoryData/ManageInventoryData";
 
 const ManageInventories = () => {
@@ -23,6 +24,7 @@ const ManageInventories = () => {
     <div>
       <h3 className="text-center mt-4">Manage inventory</h3>
       <div>
+      <PageTitle title={"manageinventory"}></PageTitle>
         <Container className="mt-5">
           <Row>
             {dresses.map((dress) => (

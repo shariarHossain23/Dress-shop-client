@@ -8,6 +8,7 @@ import HomePage from './Pages/Home/HomePage/HomePage';
 import ManageDress from './Pages/Home/ManageDress/ManageDress';
 import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
 import Header from './Pages/Shared/Header/Header';
+import Login from './Pages/Shared/Login/Login';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='dress/:id'element={<ManageDress></ManageDress>}></Route>   {/* private route kora lagbe */}
         <Route path='/manageinventory' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/additem'element={<Additem></Additem>}></Route>
+        <Route path='/login'element={<Login></Login>}></Route>
       </Routes>
     </div>
   );
