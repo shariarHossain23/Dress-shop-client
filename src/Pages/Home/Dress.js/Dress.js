@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./Dress.css";
 
 const Dress = ({ dress }) => {
-  const { dressName, price, img, desc, supplierName, quantity } = dress;
+  const { dressName, price, img, desc, supplierName, quantity,_id} = dress;
+  const navigate = useNavigate()
   return (
     <Col md={4} className="  gx-5 mx-auto">
       <Card className="dress-card" >
@@ -21,7 +23,7 @@ const Dress = ({ dress }) => {
             </p>
           </Card.Text>
           <div>
-              <button className="card-btn">Manage</button>
+              <button onClick={()=>navigate(`/dress/${_id}`)} className="card-btn">Manage</button>
           </div>
         </Card.Body>
       </Card>
