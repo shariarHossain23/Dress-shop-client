@@ -1,6 +1,9 @@
+import axios from "axios";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from '../../../../src/Images/google.png';
 import auth from "../../../firebase.init";
 import PageTitle from "../PageTItle/PageTitle";
@@ -8,7 +11,21 @@ import './Login.css';
 
 
 const Login = () => {
+    const [user, loading, error] = useAuthState(auth);
     const [signInWithGoogle, userGoogle, loading1, error1] = useSignInWithGoogle(auth);
+    const email =  user?.email;
+    let navigate = useNavigate();
+    let location = useLocation();
+  
+    let from = location.state?.from?.pathname || "/";
+    if(user){
+        axios.post("https://secure-reaches-83838.herokuapp.com/login",{email})
+        .then(response => {
+            localStorage.setItem("userToken",response.data)
+            navigate(from, { replace: true });
+            toast.success("login successful")
+        })
+    }
   return (
     <div>
       <PageTitle title="login"></PageTitle>

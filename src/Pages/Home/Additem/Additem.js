@@ -1,12 +1,15 @@
-import axios from "axios";
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import axiosPrivate from "../../../api/axiosPrivate";
+import auth from "../../../firebase.init";
 import PageTitle from "../../Shared/PageTItle/PageTitle";
 import "./additem.css";
 
 const Additem = () => {
-  // dressName, price, img,supplierName, quantity,desc
+  const [user] = useAuthState(auth)
+  const email = user?.email
   const handleAddItem = (event) => {
     event.preventDefault();
     const dressCollection = {
@@ -16,8 +19,9 @@ const Additem = () => {
       desc: event.target.desc.value,
       supplierName: event.target.supplierName.value,
       quantity: event.target.quantity.value,
+      email:email
     };
-    axios.post("http://localhost:5000/dress",dressCollection)
+    axiosPrivate.post("http://localhost:5000/dress",dressCollection)
     .then(response => {
         toast.success("product upload successfully")
         event.target.reset()

@@ -10,7 +10,7 @@ const ManageDress = () => {
   const [newQuantity, setQuantity] = useState(dress.quantity);
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`http://localhost:5000/dress/${id}`);
+      const { data } = await axios.get(`https://secure-reaches-83838.herokuapp.com/dress/${id}`);
       setDress(data);
       setQuantity(data?.quantity);
     })();
@@ -20,7 +20,7 @@ const ManageDress = () => {
     const quantity = newQuantity - 1;
     
     axios
-      .put(`http://localhost:5000/dress/${id}`, { quantity })
+      .put(`https://secure-reaches-83838.herokuapp.com/dress/${id}`, { quantity })
       .then((response) => {
         console.log(response);
         setReload(!reload)
@@ -33,7 +33,7 @@ const ManageDress = () => {
     const addquantity = event.target.quantity.value;
     const quantity = parseInt(addquantity) + parseInt(dress?.quantity);
     await axios
-      .put(`http://localhost:5000/dress/${id}`, { quantity })
+      .put(`https://secure-reaches-83838.herokuapp.com/dress/${id}`, { quantity })
       .then((response) => {
         console.log(response.config.data);
         setReload(!reload)

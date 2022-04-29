@@ -11,7 +11,7 @@ const ManageInventories = () => {
   const navigate = useNavigate();
 
   const handleDelete = id => {
-    axios.delete(`http://localhost:5000/dress/${id}`)
+    axios.delete(`https://secure-reaches-83838.herokuapp.com/dress/${id}`)
     .then(response => {
       console.log(response.data);
       if(response.data.deletedCount > 0){

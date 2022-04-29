@@ -7,6 +7,7 @@ import Additem from './Pages/Home/Additem/Additem';
 import HomePage from './Pages/Home/HomePage/HomePage';
 import ManageDress from './Pages/Home/ManageDress/ManageDress';
 import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
+import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
 
@@ -17,9 +18,21 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/'element={<HomePage></HomePage>}></Route>
-        <Route path='dress/:id'element={<ManageDress></ManageDress>}></Route>   {/* private route kora lagbe */}
-        <Route path='/manageinventory' element={<ManageInventories></ManageInventories>}></Route>
-        <Route path='/additem'element={<Additem></Additem>}></Route>
+        <Route path='dress/:id'element={
+          <PrivateRoute>
+            <ManageDress></ManageDress>
+          </PrivateRoute>
+        }></Route>  
+        <Route path='/manageinventory' element={
+          <PrivateRoute>
+            <ManageInventories></ManageInventories>
+          </PrivateRoute>
+        }></Route>
+        <Route path='/additem'element={
+          <PrivateRoute>
+            <Additem></Additem>
+          </PrivateRoute>
+        }></Route>
         <Route path='/login'element={<Login></Login>}></Route>
       </Routes>
     </div>
