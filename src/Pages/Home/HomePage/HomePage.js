@@ -6,7 +6,7 @@ import Dresses from '../Dresses/Dresses';
 const HomePage = () => {
     return (
         <div>
-            <PageTitle title='Home'></PageTitle>
+           <PageTitle title='Home'></PageTitle>
             <Banner></Banner>
             <Dresses></Dresses>
         </div>

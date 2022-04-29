@@ -1,15 +1,11 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import axiosPrivate from "../../../api/axiosPrivate";
-import auth from "../../../firebase.init";
 import PageTitle from "../../Shared/PageTItle/PageTitle";
 import "./additem.css";
 
 const Additem = () => {
-  const [user] = useAuthState(auth)
-  const email = user?.email
   const handleAddItem = (event) => {
     event.preventDefault();
     const dressCollection = {
@@ -19,8 +15,9 @@ const Additem = () => {
       desc: event.target.desc.value,
       supplierName: event.target.supplierName.value,
       quantity: event.target.quantity.value,
-      email:email
+      email: event.target.email.value,
     };
+    console.log(dressCollection);
     axiosPrivate.post("http://localhost:5000/dress",dressCollection)
     .then(response => {
         toast.success("product upload successfully")
@@ -38,6 +35,9 @@ const Additem = () => {
             <Form onSubmit={handleAddItem} className="">
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control name="product" type="text" placeholder="Product Name" required/>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control name="email" type="email" placeholder="Your email" required/>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control name="price" type="number" placeholder="Price" required />

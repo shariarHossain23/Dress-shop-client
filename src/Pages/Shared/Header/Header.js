@@ -27,7 +27,7 @@ const Header = () => {
                 user && <>
                 <ActiveLink to="/manageinventory">Manage Items</ActiveLink>
                 <ActiveLink to="/additem">Additems</ActiveLink>
-                <ActiveLink to="/dress/:id">My items</ActiveLink>
+                <ActiveLink to="/myitems">My items</ActiveLink>
                 </>
               }
               { user?<button onClick={()=> handleSignOut() }>Logout</button>:

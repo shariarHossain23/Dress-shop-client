@@ -10,7 +10,7 @@ const Dresses = () => {
   const navigate = useNavigate()
   return (
     <div>
-      <PageTitle title={"manageinvetory"}></PageTitle>
+      <PageTitle title={"Home"}></PageTitle>
       <h1 className="text-center mt-5">Dress Collection</h1>
       <div>
         <Container>

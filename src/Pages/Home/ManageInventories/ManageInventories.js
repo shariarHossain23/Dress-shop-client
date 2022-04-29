@@ -22,9 +22,9 @@ const ManageInventories = () => {
   }
   return (
     <div>
+         <PageTitle title={"manageitem"}></PageTitle>
       <h3 className="text-center mt-4">Manage inventory</h3>
       <div>
-      <PageTitle title={"manageinventory"}></PageTitle>
         <Container className="mt-5">
           <Row>
             {dresses.map((dress) => (

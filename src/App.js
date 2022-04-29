@@ -7,6 +7,7 @@ import Additem from './Pages/Home/Additem/Additem';
 import HomePage from './Pages/Home/HomePage/HomePage';
 import ManageDress from './Pages/Home/ManageDress/ManageDress';
 import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
+import Myitems from './Pages/Home/MyItems/Myitems';
 import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
@@ -18,6 +19,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/'element={<HomePage></HomePage>}></Route>
+        <Route path='/home'element={<HomePage></HomePage>}></Route>
         <Route path='dress/:id'element={
           <PrivateRoute>
             <ManageDress></ManageDress>
@@ -33,6 +35,9 @@ function App() {
             <Additem></Additem>
           </PrivateRoute>
         }></Route>
+        <Route path='/myitems' element={<PrivateRoute>
+          <Myitems></Myitems>
+        </PrivateRoute>}></Route>
         <Route path='/login'element={<Login></Login>}></Route>
       </Routes>
     </div>
