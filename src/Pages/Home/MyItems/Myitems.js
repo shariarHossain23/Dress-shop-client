@@ -1,7 +1,9 @@
 import axios from "axios";
+import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosPrivate from "../../../api/axiosPrivate";
 import auth from "../../../firebase.init";
@@ -11,13 +13,22 @@ import Mypost from "../Mypost/Mypost";
 const Myitems = () => {
     const [posts,myPosts] = useState([])
   const [user] = useAuthState(auth);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const email = user.email;
     const url = `https://secure-reaches-83838.herokuapp.com/userpost?email=${email}`;
     const getItem = async () => {
+     try {
       const { data } = await axiosPrivate.get(url);
-       myPosts(data)
+      myPosts(data)
+       
+     } catch (error) {
+       if(error.response.status === 401 ||error.response.status === 403){
+        signOut(auth)
+        navigate('/login')
+       }
+     }
     };
     getItem();
   }, [user]);
