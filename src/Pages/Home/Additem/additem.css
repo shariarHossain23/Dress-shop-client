@@ -1,0 +1,14 @@
+.form-group {
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+.form-group input {
+  display: block;
+  width: 70%;
+  margin: 10px auto;
+  outline: none;
+  border: 1px solid gray;
+  padding: 7px 10px;
+}
