@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../../../src/Images/google.png";
@@ -20,6 +20,10 @@ const Login = () => {
       loadingemail,
       erroremail,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, errorreset] = useSendPasswordResetEmail(
+      auth
+    );
+
   const email = user?.email;
   let navigate = useNavigate();
   let location = useLocation();
@@ -34,7 +38,6 @@ const Login = () => {
     password: "",
   });
   
- console.log(inputError);
   const handleEmailForm = (event) => {
     const regex = /.+@[^@]+\.[^@]{2,}$/.test(event.target.value);
     if(regex){
@@ -58,7 +61,15 @@ const Login = () => {
  }
 
 
- 
+ const handleResetPass = async() =>{
+    if(information.email){
+      await sendPasswordResetEmail(information.email)
+      toast.success("check your email")
+    }
+    else{
+      toast.error("plz provide your email")
+    }
+ }
 
   // redirect
  let from = location.state?.from?.pathname || "/";
@@ -117,7 +128,7 @@ const Login = () => {
                  {inputError.password}
                 </Form.Text>
               </Form.Group>
-              <button className="btn btn-link text-decoration-none text-muted fs-6 mb-1">forgot password</button>
+              <button onClick={handleResetPass} className="btn btn-link text-decoration-none text-muted fs-6 mb-1">forgot password</button>
               <Button className="inventory-btn w-100 rounded-pill" variant="primary" type="submit">
                 Login
               </Button>
