@@ -103,7 +103,6 @@ const Signup = () => {
       }
   },[user])
 
-  console.log(error);
   return (
     <div>
       <PageTitle title="signup"></PageTitle>
