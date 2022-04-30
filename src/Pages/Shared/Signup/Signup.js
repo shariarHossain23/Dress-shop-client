@@ -7,6 +7,7 @@ import {
     useSignInWithGoogle
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../../../src/Images/google.png";
 import auth from "../../../firebase.init";
 import PageTitle from "../PageTItle/PageTitle";
@@ -90,14 +91,17 @@ const Signup = () => {
 
   let from = location.state?.from?.pathname || "/";
   const email = information.email;
-  if (user) {
-    axios
-      .post("https://secure-reaches-83838.herokuapp.com/login", { email })
-      .then((response) => {
-        localStorage.setItem("userToken", response.data);
-        navigate(from, { replace: true });
-      });
-  }
+  useEffect(()=>{
+    if (user) {
+        axios
+          .post("https://secure-reaches-83838.herokuapp.com/login", { email })
+          .then((response) => {
+            localStorage.setItem("userToken", response.data);
+            navigate(from, { replace: true });
+            toast.success("signup success")
+          });
+      }
+  },[user])
 
   console.log(error);
   return (
