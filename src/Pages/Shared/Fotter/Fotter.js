@@ -13,19 +13,19 @@ const Fotter = () => {
 
            <div className="container">
            <div className="row gx-5">
-                <div className="col-4 ">
+                <div className="col-sm-4 mt-3 ">
                     <h6 className='text-white ms-2'>Dress shop</h6>
                     <LocationMarkerIcon className='text-white' style={{width:"15px"}}></LocationMarkerIcon> <span className='text-white'>New work</span> <br />
                     <InboxIcon className='text-white' style={{width:"15px"}}></InboxIcon> <span className='text-white'>dress@gmail.com</span> <br />
                     <PhoneIcon className='text-white' style={{width:"15px"}}></PhoneIcon> <span className='text-white'>+99 98645</span>
                 </div>
-                <div className="col-4 ">
+                <div className="col-sm-4 mt-3">
                     <Link className='text-white text-decoration-none' to='/'>Home</Link> <br />
                     <Link className='text-white text-decoration-none' to='/blogs'>Blog</Link> <br />
                     <Link className='text-white text-decoration-none' to='/myitems'>Myitem</Link><br />
                     <Link className='text-white text-decoration-none' to='/additem'>Additem</Link><br />
                 </div>
-                <div className="col-4 ">
+                <div className="col-sm-4 mt-3 ">
                     <h4 className='text-white '>Follow Us</h4>
                     <FaFacebook className='text-white fs-6 mx-1'></FaFacebook>
                     <FaLinkedin className='text-white fs-6 mx-1'></FaLinkedin>

@@ -17,6 +17,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Fotter from './Pages/Shared/Fotter/Fotter';
 import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Shared/Login/Login';
+import Signup from './Pages/Shared/Signup/Signup';
 
 function App() {
   useEffect(()=>{
@@ -49,6 +50,7 @@ function App() {
         </PrivateRoute>}></Route>
         <Route path='/login'element={<Login></Login>}></Route>
         <Route path='/blogs'element={<Blog></Blog>}></Route>
+        <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='*'element={<NotFound></NotFound>}></Route>
       </Routes>
        <Fotter></Fotter>
