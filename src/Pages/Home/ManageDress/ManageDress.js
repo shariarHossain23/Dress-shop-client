@@ -49,11 +49,11 @@ const ManageDress = () => {
     <div>
       <PageTitle title="Manageinventory"></PageTitle>
       <div className="container mt-5">
-        <div className="row gx-5">
-        <div className="col-md-6 text-center" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-            <img  width={300} height={500} className="img-fluid mx-auto text-center" src={dress?.img} alt="" />
+        <div className="row">
+        <div className="col-sm-12 col-md-6 text-center mx-auto" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+            <img  className="img-fluid mx-auto text-center" src={dress?.img} alt="" />
           </div>
-          <div className="col-md-6 mb-5"
+          <div className="col-md-6 mt-2 mx-auto mb-5"
           data-aos="fade-left"
           data-aos-anchor="#example-anchor"
           data-aos-offset="500"
