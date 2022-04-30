@@ -14,14 +14,14 @@ const Header = () => {
   }
   return (
     <div className="sticky-top">
-      <Navbar sticky="top" bg="light" expand="lg">
+      <Navbar  bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="#home">
-            <img width={60} src={logo} alt="" />
+            <img className="img-fluid" width={60} src={logo} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto navbar-nav">
+            <Nav className="ms-auto">
               <ActiveLink to="/">Home</ActiveLink>
               {
                 user && <>
