@@ -10,3 +10,8 @@ Live site Link: https://assignment11-dress-shop.web.app/
 - this website used user post and delete data
 - this website used some animation
 - this website used jwt token
+- this website used daynamic page title
+- this website react router
+- this website used active link
+- this website used react icon
+- this website used table
