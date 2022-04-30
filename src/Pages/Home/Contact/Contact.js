@@ -2,7 +2,7 @@ import React from 'react';
 import apple from '../../../Images/apple.png';
 import playstore from '../../../Images/playstore.png';
 import './Contact.css';
-const Contact = () => {
+const Contact = () => { 
     return (
         <div className='contact-bg mt-5'>
             <div className="container">
