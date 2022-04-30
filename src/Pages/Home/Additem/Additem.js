@@ -17,8 +17,7 @@ const Additem = () => {
       quantity: event.target.quantity.value,
       email: event.target.email.value,
     };
-    console.log(dressCollection);
-    axiosPrivate.post("http://localhost:5000/dress",dressCollection)
+    axiosPrivate.post("https://secure-reaches-83838.herokuapp.com/dress",dressCollection)
     .then(response => {
         toast.success("product upload successfully")
         event.target.reset()
