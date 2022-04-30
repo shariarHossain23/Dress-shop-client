@@ -23,7 +23,7 @@ const Contact = () => {
                     </div>
                     <div className="col-sm-4 mt-3">
                         <img width={150} src={playstore} alt="" />
-                        <img width={190} className="text-white" src={apple} alt="" />
+                        <img width={150} className="text-white" src={apple} alt="" />
                     </div>
                 </div>
             </div>

@@ -27,10 +27,10 @@ const Fotter = () => {
                 </div>
                 <div className="col-md-4 mt-3 ">
                     <h4 className='text-white '>Follow Us</h4>
-                    <FaFacebook className='text-white fs-6 mx-1'></FaFacebook>
-                    <FaLinkedin className='text-white fs-6 mx-1'></FaLinkedin>
-                    <FaInstagram className='text-white fs-6 mx-1'></FaInstagram>
-                    <FaYoutube className='text-white fs-6 mx-1'></FaYoutube>
+                    <FaFacebook className='text-white fs-5 mx-1'></FaFacebook>
+                    <FaLinkedin className='text-white fs-5 mx-1'></FaLinkedin>
+                    <FaInstagram className='text-white fs-5 mx-1'></FaInstagram>
+                    <FaYoutube className='text-white fs-5 mx-1'></FaYoutube>
                 </div>
             </div>
             <p className='text-white text-center mt-5'>&copy;{year} all right reserved Shariar</p>
