@@ -56,7 +56,7 @@ const ManageInventories = () => {
             return   <tr>
             <th scope="row">{dress?.supplierName}</th>
             <td>{dress?.dressName}</td>
-            <td>{dress?.price}</td>
+            <td>${dress?.price}</td>
             <td>{dress?.quantity}</td>
             <td class="align-top">
             <div onClick={()=>handleDelete(dress?._id)} className="trush">

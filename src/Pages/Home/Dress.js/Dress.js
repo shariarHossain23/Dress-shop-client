@@ -15,7 +15,7 @@ const Dress = ({ dress }) => {
           <Card.Title>Name:{dressName}</Card.Title>
           <Card.Text>
             <p>
-              Price: <small>{price}</small>
+              Price: <small>${price}</small>
             </p>
             <p>About: <small>{desc.slice(30)}</small> </p>
             <h4>Supplier name :{supplierName}</h4>
